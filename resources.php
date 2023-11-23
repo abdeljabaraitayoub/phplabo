@@ -1,18 +1,17 @@
 <?php include 'dbcon.php'; ?>
-<?php
-include 'header.php';
-?>
 
 <body>
-
+    <?php
+    include 'header.php';
+    ?>
 
     <!-- az-header -->
     <main class="d-flex flex-column">
         <div class="d-flex w-75 justify-content-between my-3">
-            <h1>all the users</h1>
+            <h1>all the resources</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Add new user
+                Add new resource
             </button>
         </div>
         <!-- Modal -->
@@ -24,40 +23,36 @@ include 'header.php';
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="insertdata.php" method="post">
+                        <form action="insertresource.php" method="post">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">UserName</label>
-                                <input type="text" class="form-control" name="name" aria-describedby="emailHelp" />
+                                <label for="exampleInputEmail1" class="form-label">ResourceName</label>
+                                <input type="text" class="form-control" name="ResourceName" aria-describedby="emailHelp" />
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">UserEmail</label>
-                                <input type="text" class="form-control" name="email" aria-describedby="emailHelp" />
-                                <div id="emailHelp" class="form-text">
-                                    We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="disabledTextInput" class="form-label">Role</label>
-                                <select name="role" class="form-select selectpicker">
-                                    <option value="2">member</option>
-                                    <option value="3">Leader</option>
+                                <label for="disabledTextInput" class="form-label">Subcategory</label>
+                                <select name="SubcategoryID" class="form-select selectpicker">
+                                    <option value="1">Agile Methodology</option>
+                                    <option value="2">Task Tracking</option>
+                                    <option value="3">Web Development</option>
+                                    <option value="4">Agile Methodology</option>
+                                    <option value="5">Task Tracking</option>
+                                    <option value="6">Web Development</option>
+                                    <option value="7">Mobile App Development</option>
+                                    <option value="8">Social Media Marketing</option>
+                                    <option value="9">Content Marketing</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="disabledTextInput" class="form-label">Squad</label>
-                                <select id="disabledSelect" name="squad" class="form-select selectpicker">
-                                    <option value="1">Brogrammers</option>
-                                    <option value="2">ProDevs</option>
-                                    <option value="3">CODEZILLA</option>
-                                    <option value="4">cell13</option>
-                                    <option value="5">Alpha</option>
+                                <select id="disabledSelect" name="projectID" class="form-select selectpicker">
+                                    <option value="1">1st-brief</option>
                                 </select>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <input type="submit" name="add" value="add" class="btn btn-primary" />
+                                <input type="submit" name="add" value="addd" class="btn btn-primary" />
                             </div>
                         </form>
                     </div>
@@ -67,10 +62,7 @@ include 'header.php';
 
         <table class="table table-bordered table-striped table-hover">
             <?php
-            $query = "SELECT * FROM `Users`
-            JOIN ROLES ON Users.UserRole=ROLES.RoleID
-            LEFT JOIN Squads ON Users.SquadID=Squads.SquadID
-            order by UserID";
+            $query = "SELECT * FROM `Ressources` LEFT JOIN Project ON Ressources.ResourceID=Project.SquadID JOIN Subcategory on Ressources.SubcategoryID=Subcategory.SubcategoryID";
 
             $result = mysqli_query($connection, $query);
 
@@ -80,11 +72,10 @@ include 'header.php';
             ?>
             <thead>
                 <tr>
-                    <!-- <th>ID</th> -->
-                    <th>UserName</th>
-                    <th>UserEmail</th>
-                    <th>Role</th>
-                    <th>Squad</th>
+                    <!-- <th>ResourceID</th> -->
+                    <th>ResourceName</th>
+                    <th>SubcategoryName</th>
+                    <th>ProjectName</th>
                     <th>Modify</th>
                     <th>Delete</th>
                 </tr>
@@ -94,16 +85,15 @@ include 'header.php';
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <tr>
-                        <!-- <td><?php echo $row['UserID']; ?></td> -->
-                        <td><?php echo $row['UserName']; ?></td>
-                        <td><?php echo $row['UserEmail']; ?></td>
-                        <td><?php echo $row['RoleName']; ?></td>
-                        <td><?php echo $row['SquadName']; ?></td>
+                        <!-- <td><?php echo $row['ResourceID']; ?></td> -->
+                        <td><?php echo $row['ResourceName']; ?></td>
+                        <td><?php echo $row['SubcategoryName']; ?></td>
+                        <td><?php echo $row['ProjectName']; ?></td>
                         <td>
-                            <a href="update.php?id=<?php echo $row['UserID']; ?>" class="btn btn-success">Modify</a>
+                            <a href="updateresource.php?ResourceID=<?php echo $row['ResourceID']; ?>" class="btn btn-success">Modify</a>
                         </td>
                         <td>
-                            <a href="delete.php?id=<?php echo $row['UserID']; ?>" class="btn btn-danger">delete</a>
+                            <a href="deleteresource.php?id=<?php echo $row['ResourceID']; ?>" class="btn btn-danger">delete</a>
                         </td>
 
                     </tr>
