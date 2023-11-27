@@ -60,44 +60,25 @@
 <div class="az-header">
     <div class="container">
         <div class="az-header-left">
-            <a href="index.html" class="az-logo"><span></span> azia</a>
+            <a href="index.php" class="az-logo"><span></span> azia</a>
             <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
         </div>
         <!-- az-header-left -->
         <div class="az-header-menu">
             <div class="az-header-menu-header">
-                <a href="index.html" class="az-logo"><span></span> azia</a>
+                <a href="index.php" class="az-logo"><span></span> azia</a>
                 <a href="" class="close">&times;</a>
             </div>
             <!-- az-header-menu-header -->
             <ul class="nav">
-                <li class="nav-item active ">
-                    <a href="index.php" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+                <li class="nav-item ">
+                    <a href="index.php" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> users</a>
                 </li>
                 <li class="nav-item">
-                    <a href="resources.php" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Charts</a>
+                    <a href="resources.php" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> resources</a>
                 </li>
                 <li class="nav-item">
-                    <a href="chart-chartjs.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
-                    <div class="az-menu-sub">
-                        <div class="container">
-                            <div>
-                                <nav class="nav">
-                                    <a href="elem-buttons.html" class="nav-link">Buttons</a>
-                                    <a href="elem-dropdown.html" class="nav-link">Dropdown</a>
-                                    <a href="elem-icons.html" class="nav-link">Icons</a>
-                                    <a href="table-basic.html" class="nav-link">Table</a>
-                                </nav>
-                            </div>
-                        </div>
-                        <!-- container -->
-                    </div>
+                    <a href="categories.php" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> categories</a>
                 </li>
             </ul>
         </div>

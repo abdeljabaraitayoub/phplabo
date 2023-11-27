@@ -31,7 +31,7 @@ include 'header.php';
 ?>
 <main class="d-flex flex-column justify-content-center">
     <h1>modification de<?php echo $row['ResourceID']; ?></h1>
-    <form class="w-75" action="updateresource.php?ResourceID=<?php echo $ResourceID; ?>" method="post">
+    <form class="w-75" action="updateresource.php?ResourceID =<?php echo $ResourceID; ?>" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">ResourceName</label>
             <input type="ResourceName" class="form-control" value="<?php echo $row['ResourceName']; ?>" name="ResourceName" aria-describedby="emailHelp" />

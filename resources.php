@@ -102,8 +102,31 @@
                 ?>
             </tbody>
 
+
         </table>
+        <?php
+        $sql = "SELECT * FROM Ressources";
+        $result = $connection->query($sql);
+
+        $totalRows = $result->num_rows;
+        $sumColumn1 = 0;
+        $sumColumn2 = 0;
+
+        while ($row = $result->fetch_assoc()) {
+            $sumColumn1 += $row['ResourceID'];
+            // $sumColumn2 += $row['UserRole'];
+        }
+
+        // $averageColumn1 = $sumColumn1 / $totalRows;
+        // $averageColumn2 = $sumColumn2 / $totalRows;
+
+        echo "Total de resources: $totalRows<br>";
+        // echo "Average Column1: $averageColumn1<br>";
+        // echo "Average Column2: $averageColumn2<br>";
+        $connection->close();
+        ?>
     </main>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
